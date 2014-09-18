@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+{#
   <div class="uk-grid" data-uk-grid-margin>
       <div class="uk-width-medium-1-1">
-          <div class="uk-vertical-align uk-text-center cover" style="height: 250px;">
+          <!-- <div class="uk-vertical-align uk-text-center cover" style="height: 250px; background-image: url('{{ SITEURL }}/static/images/cover.jpg');"> -->
+            <div class="uk-vertical-align uk-text-center cover" style="height: 250px;"">
               <div class="uk-vertical-align-middle uk-width-1-2">
                   <h1 class="uk-heading-large">{{ page.title }}</h1>
                   <p class="uk-text-large">{{ page.summary }}</p>
@@ -16,43 +18,28 @@
           </div>
       </div>
   </div>
+#}
 <!--
   <div class="uk-grid" data-uk-grid-margin>
-      <div class="uk-width-medium-1-3">
-          <div class="uk-grid">
-              <div class="uk-width-1-6">
-                  <i class="uk-icon-cog uk-icon-large uk-text-primary"></i>
-              </div>
-              <div class="uk-width-5-6">
-                  <h2 class="uk-h3">Sample Heading</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              </div>
-          </div>
+    <div class="uk-width-medium-1-2">
+      <div class="uk-grid">
+        <div class="uk-width-1-6">
+          <i class="uk-icon-cog uk-icon-large uk-text-primary"></i>
+        </div>
+        <div class="uk-width-5-6">
+          <h2 class="uk-h3">Important dates</h2>
+          <p>
+            <ul class="simple">
+              <li><strong>10th October 2014</strong> Workshop proposal submissions due</li>
+              <li><strong>17th October 2014</strong> Workshop proposal notification of acceptance</li>
+              <li><strong>1st December 2014</strong> Workshop description mailed to IWCS organizers</li>
+              <li><strong>1st March 201</strong> Workshop material due to IWCS organizers</li>
+              <li><strong>14th April 2015</strong> Workshop date</li>
+            </ul>
+          </p>
+        </div>
       </div>
-
-      <div class="uk-width-medium-1-3">
-          <div class="uk-grid">
-              <div class="uk-width-1-6">
-                  <i class="uk-icon-thumbs-o-up uk-icon-large uk-text-primary"></i>
-              </div>
-              <div class="uk-width-5-6">
-                  <h2 class="uk-h3">Sample Heading</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              </div>
-          </div>
-      </div>
-
-      <div class="uk-width-medium-1-3">
-          <div class="uk-grid">
-              <div class="uk-width-1-6">
-                  <i class="uk-icon-cloud-download uk-icon-large uk-text-primary"></i>
-              </div>
-              <div class="uk-width-5-6">
-                  <h2 class="uk-h3">Sample Heading</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              </div>
-          </div>
-      </div>
+    </div>
   </div>
 -->
 <!--
@@ -94,7 +81,7 @@
       </div>
   </div> -->
 
-  <hr class="uk-grid-divider">
+  <!-- <hr class="uk-grid-divider"> -->
 
   <div class="uk-grid" data-uk-grid-margin>
 <!--
@@ -103,12 +90,28 @@
     </div>
  -->
     {% for article in articles %}
-      <div class="uk-width-medium-1-1">
+      <div class="uk-width-medium-3-4">
         <h1><a href="{{ SITEURL}}/{{ article.url }}">{{ article.title }}</a></h1>
         {{ article.content }}
         <!-- <a class="uk-button uk-button-primary" href="{{ SITEURL}}/{{ article.url }}">Read more</a> -->
       </div>
     {% endfor %}
+
+    <div class="uk-width-medium-1-4 uk-visible-large">
+      <div class="uk-panel uk-panel-box">
+        <h2 class="uk-h3">Important dates</h2>
+        <p>
+          <ul class="uk-list uk-list-line">
+            <li><strong>10th October 2014</strong> Workshop proposal submissions due</li>
+            <li><strong>17th October 2014</strong> Workshop proposal notification of acceptance</li>
+            <li><strong>1st December 2014</strong> Workshop description mailed to IWCS organizers</li>
+            <li><strong>1st March 201</strong> Workshop material due to IWCS organizers</li>
+            <li><strong>14th April 2015</strong> Workshop date</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
   </div>
 
   <!--
