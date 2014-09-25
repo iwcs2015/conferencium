@@ -1,0 +1,38 @@
+{% for article in articles %}
+  <div class="uk-width-medium-3-4">
+    <h1>
+      <a href="{{ SITEURL}}/{{ article.url }}">{{ article.title }}</a>
+    </h1>
+
+    {% include "article_meta.html" %}
+
+    {{ article.content }}
+    <!-- <a class="uk-button uk-button-primary" href="{{ SITEURL}}/{{ article.url }}">Read more</a> -->
+  </div>
+
+  {% if loop.first %}
+    <div class="uk-width-medium-1-4 uk-visible-large">
+      <div class="uk-sticky-placeholder" style="height: 270px;">
+        <div class="uk-panel uk-panel-box" data-uk-sticky="{top:35}">
+          <h2 class="uk-h3">Important dates</h2>
+          <p>
+            <ul class="uk-list uk-list-line">
+              <li><strong>10th October 2014</strong> Workshop proposal submissions due</li>
+              <li><strong>17th October 2014</strong> Workshop proposal notification of acceptance</li>
+              <li><strong>1st December 2014</strong> Workshop description mailed to IWCS organizers</li>
+              <li><strong>1st March 201</strong> Workshop material due to IWCS organizers</li>
+              <li><strong>14th April 2015</strong> Workshop date</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if not loop.last %}
+  <div class="uk-width-medium-3-4">
+    <hr class="uk-grid-divider">
+  </div>
+  {% endif %}
+
+{% endfor %}

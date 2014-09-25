@@ -1,51 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="uk-grid" data-uk-grid-margin>
-    <div class="uk-width-medium-3-4">
-      <article class="uk-article">
+  <div class="uk-width-medium-3-4">
+    <article class="uk-article">
 
-        <h1 class="uk-article-title">{{ article.title }}</h1>
+      <h1 class="uk-article-title">{{ article.title }}</h1>
 
-        <p class="uk-article-meta">
-          Written by <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
-          on 12 April 2013.
-          Posted in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>.
-        </p>
+      {% include "article_meta.html" %}
 
-        {{ article.content }}
+      {{ article.content }}
 
-      </article>
+    </article>
 
-      {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
-      <div class="comments">
-        <h2>Comments !</h2>
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-          var disqus_shortname = '{{ DISQUS_SITENAME }}';
-          var disqus_identifier = '{{ article.url }}';
-          var disqus_url = '{{ SITEURL }}/{{ article.url }}';
-          (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//{{ DISQUS_SITENAME }}.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-        </script>
-        <noscript>Please enable JavaScript to view the comments.</noscript>
-      </div>
-      {% endif %}
+    {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = '{{ DISQUS_SITENAME }}';
+        var disqus_identifier = '{{ article.url }}';
+        var disqus_url = '{{ SITEURL }}/{{ article.url }}';
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
     </div>
+    {% endif %}
+  </div>
 
-    <!-- <div class="uk-width-medium-1-4">
+  <!-- <div class="uk-width-medium-1-4">
 
-    </div> -->
+  </div> -->
 
-    <div class="uk-width-medium-1-4">
-      <div class="uk-sticky-placeholder" style="height: 270px;">
-        <div class="uk-panel uk-panel-box toc" data-uk-sticky="{top:35}" data-uk-scrollspy-nav>
-          <!-- <ul class="uk-nav uk-nav-side" data-uk-scrollspy-nav="{closest:'li', smoothscroll:true}"> -->
-          {{ article.toc }}
-        </div>
+  <div class="uk-width-medium-1-4">
+    <div class="uk-sticky-placeholder" style="height: 270px;">
+      <div class="uk-panel uk-panel-box toc" data-uk-sticky="{top:35}" data-uk-scrollspy-nav>
+        <!-- <ul class="uk-nav uk-nav-side" data-uk-scrollspy-nav="{closest:'li', smoothscroll:true}"> -->
+        {{ article.toc }}
       </div>
     </div>
   </div>

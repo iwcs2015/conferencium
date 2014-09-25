@@ -34,13 +34,14 @@
             {% for p in PAGES %}
               <li{% if p == page %} class="uk-active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
             {% endfor %}
-          {% else %}
-            {% if DISPLAY_CATEGORIES_ON_MENU %}
-              {% for cat, null in categories %}
-                <li{% if cat == category %} class="uk-active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-              {% endfor %}
-            {% endif %}
           {% endif %}
+
+          {% if DISPLAY_CATEGORIES_ON_MENU %}
+            {% for cat, null in categories %}
+              <li{% if cat == category %} class="uk-active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+            {% endfor %}
+          {% endif %}
+
 <!--
           <li class="uk-active">
             <a href="layouts_frontpage.html">Frontpage</a>
@@ -48,10 +49,12 @@
  -->
         </ul>
         <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
-        <div class="uk-navbar-brand uk-navbar-center uk-visible-small">Brand</div>
+        <div class="uk-navbar-brand uk-navbar-center uk-visible-small">{{ SITENAME }}</div>
       </nav>
 
-    {% block content %}{% endblock content %}
+    <div class="uk-grid" data-uk-grid-margin>
+      {% block content %}{% endblock content %}
+    </div>
 
     </div>
 
