@@ -6,3 +6,19 @@
 a.uk-active {
     font-weight: 700;
 }
+
+div.front-page {
+    position: relative;
+    top: -25px;
+    padding: 5px;
+}
+
+div.front-page h1 {
+    text-align: right;
+}
+
+div.front-page p {
+    text-align: right;
+    float: right;
+    max-width: 70%;
+}
