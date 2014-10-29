@@ -27,6 +27,7 @@
           <a class="uk-navbar-brand uk-hidden-small" href="{{ SITEURL }}/">{{ SITENAME }}</a>
         </header>
         <ul class="uk-navbar-nav uk-hidden-small">
+          {# TODO: get rid of code duplication! See #offcanvas. #}
           {% for title, link in MENUITEMS %}
               <li><a href="{{ link }}">{{ title }}</a></li>
           {% endfor %}
@@ -43,11 +44,6 @@
             {% endfor %}
           {% endif %}
 
-<!--
-          <li class="uk-active">
-            <a href="layouts_frontpage.html">Frontpage</a>
-          </li>
- -->
         </ul>
         <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
         <div class="uk-navbar-brand uk-navbar-center uk-visible-small">{{ SITENAME }}</div>
@@ -57,6 +53,29 @@
       {% block content %}{% endblock content %}
     </div>
 
+    </div>
+
+    <div id="offcanvas" class="uk-offcanvas">
+      <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-offcanvas">
+        {# TODO: get rid of code duplication! #}
+          {% for title, link in MENUITEMS %}
+              <li><a href="{{ link }}">{{ title }}</a></li>
+          {% endfor %}
+
+          {% if DISPLAY_PAGES_ON_MENU %}
+            {% for p in PAGES %}
+              <li{% if p == page %} class="uk-active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+            {% endfor %}
+          {% endif %}
+
+          {% if DISPLAY_CATEGORIES_ON_MENU %}
+            {% for cat, null in categories %}
+              <li{% if cat == category %} class="uk-active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
     </div>
 
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
