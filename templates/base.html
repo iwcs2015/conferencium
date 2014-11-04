@@ -58,7 +58,10 @@
     <div id="offcanvas" class="uk-offcanvas">
       <div class="uk-offcanvas-bar">
         <ul class="uk-nav uk-nav-offcanvas">
-        {# TODO: get rid of code duplication! #}
+          <li>
+            <a href="{{ SITEURL }}/">{{ SITENAME }}</a>
+          </li>
+          {# TODO: get rid of code duplication! #}
           {% for title, link in MENUITEMS %}
               <li><a href="{{ SITEURL }}/{{ link }}">{{ title }}</a></li>
           {% endfor %}
