@@ -29,7 +29,7 @@
         <ul class="uk-navbar-nav uk-hidden-small">
           {# TODO: get rid of code duplication! See #offcanvas. #}
           {% for title, link in MENUITEMS %}
-              <li><a href="{{ link }}">{{ title }}</a></li>
+              <li><a href="{{ SITEURL }}/{{ link }}">{{ title }}</a></li>
           {% endfor %}
 
           {% if DISPLAY_PAGES_ON_MENU %}
@@ -60,12 +60,14 @@
         <ul class="uk-nav uk-nav-offcanvas">
         {# TODO: get rid of code duplication! #}
           {% for title, link in MENUITEMS %}
-              <li><a href="{{ link }}">{{ title }}</a></li>
+              <li><a href="{{ SITEURL }}/{{ link }}">{{ title }}</a></li>
           {% endfor %}
 
           {% if DISPLAY_PAGES_ON_MENU %}
             {% for p in PAGES %}
-              <li{% if p == page %} class="uk-active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                <li{% if p == page %} class="uk-active"{% endif %}>
+                  <a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+                </li>
             {% endfor %}
           {% endif %}
 

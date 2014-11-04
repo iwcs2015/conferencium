@@ -8,29 +8,6 @@
     <!-- <a class="uk-button uk-button-primary" href="{{ SITEURL}}/{{ article.url }}">Read more</a> -->
   </div>
 
-  {% if loop.first %}
-    <div class="uk-width-medium-1-4 uk-visible-large">
-      <div class="uk-sticky-placeholder" style="height: 270px;">
-        <div class="uk-panel uk-panel-box" data-uk-sticky="{top:35}">
-          <h2 class="uk-h3">Important dates</h2>
-          <p>
-            <ul class="uk-list uk-list-line">
-              <!-- <li><strong>10th October 2014</strong> Workshop proposals due</li> -->
-              <!-- <li><strong>17th October 2014</strong> Workshop notification of acceptance</li> -->
-              <li><strong>1st December 2014</strong> Workshop descriptions due</li>
-              <li><strong>16th December 2014</strong> Paper submissions due (long and short)</li>
-              <li><strong>2nd February 2015</strong> Paper notification of acceptance</li>
-              <li><strong>25th Feburary 2015</strong> Camera-ready papers due</li>
-              <li><strong>1st March 201</strong> Full workshop material due</li>
-              <li><strong>14th April 2015</strong> Workshops</li>
-              <li><strong>15-17 April 2015</strong> Main conference</li>
-            </ul>
-          </p>
-        </div>
-      </div>
-    </div>
-  {% endif %}
-
   {% if not loop.last %}
   <div class="uk-width-medium-3-4">
     <hr class="uk-grid-divider">
