@@ -30,13 +30,21 @@
   </div>
 
   {% if article.toc %}
-    <div class="uk-width-medium-1-4">
-      <div class="uk-sticky-placeholder" style="height: 270px;">
-        <div class="uk-panel uk-panel-box toc" data-uk-sticky="{top:35}" data-uk-scrollspy-nav>
-          {{ article.toc }}
-        </div>
-      </div>
+    <div class="uk-width-large-1-4">
+
+          {% if article.not_sticky_toc != 'True' %}
+            <div class="uk-sticky-placeholder" data-uk-sticky="{top:110}">
+          {% endif %}
+            <div class="uk-panel uk-panel-box toc" uk-navuk-nav-side data-uk-scrollspy-nav>
+              {{ article.toc }}
+            </div>
+          {% if article.not_sticky_toc != 'True' %}
+            </div>
+          {% endif %}
+
+      {% block after_toc %}{% endblock after_toc %}
+
+
     </div>
   {% endif %}
-  {% block footer %}{% endblock footer %}
 {% endblock content %}
